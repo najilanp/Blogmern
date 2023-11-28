@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 
 
 
-function Header() {
+function Header({insideblog, insideauth}) {
+
   return (
     <div>
        <Navbar expand="lg" className="w-100 position-sticky top-0" style={{background: "linear-gradient(90deg, rgba(58,75,180,1) 2%, rgba(116,49,110,1) 36%, rgba(2,0,161,1) 100%)",zIndex:'1'}}>
@@ -15,17 +16,33 @@ function Header() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
          <Nav className='ms-5'>
-         <Link to={'/blogs'} style={{textDecoration:'none'}} className=' me-3 text-light fs-5'>ALL BLOGS</Link> 
-         <Link to={'/myBlogs'} style={{textDecoration:'none'}} className='  text-light fs-5'>MY BLOGS</Link> 
+         
+         {
+          insideblog&&
+          !insideauth&&
+         <>
+           <Link to={'/blogs'} style={{textDecoration:'none'}} className=' me-3 text-light fs-5'>ALL BLOGS</Link> 
+           <Link to={'/myBlogs'} style={{textDecoration:'none'}} className='  text-light fs-5'>MY BLOGS</Link> 
+         </>
+          }
 
 
          </Nav>
 
           <Nav className="ms-auto  ">
-
-          <Link to={'/auth'} className='btn me-3  btn-warning rounded-pill text-light'>LOGIN</Link> 
-          <Link to={'/auth'} className='btn me-3  btn-warning rounded-pill text-light'>SIGNUP</Link> 
-          <Link to={'/auth'} className='btn   btn-warning rounded-pill text-light'>LOGOUT</Link> 
+         
+          {
+            !insideblog&&
+            insideauth&&
+          <>
+          <Link to={'/login'} className='btn me-3  btn-warning rounded-pill text-light'>LOGIN</Link> 
+          <Link to={'/register'} className='btn me-3  btn-warning rounded-pill text-light'>SIGNUP</Link> 
+          </>
+         }
+         {
+         !insideauth &&
+          <Link to={''} className='btn   btn-warning rounded-pill text-light'>LOGOUT</Link> 
+         }
 
 
                   

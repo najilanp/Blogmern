@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from './Header'
+
 
 function UserBlog() {
   return (
-    <div>UserBlog</div>
+    <div>
+      <Header insideblog={true}/>
+      UserBlog</div>
   )
 }
 

@@ -1,8 +1,14 @@
 import React from 'react'
+import Header from './Header'
+
+
 
 function BlogDetails() {
   return (
-    <div>BlogDetails</div>
+    <div>
+            <Header insideblog={true}/>
+
+      BlogDetails</div>
   )
 }
 

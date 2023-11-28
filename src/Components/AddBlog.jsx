@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from './Header'
+
 
 function AddBlog() {
   return (
-    <div>AddBlog</div>
+    <div>
+        <Header/>
+      AddBlog</div>
   )
 }
 

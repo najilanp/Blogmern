@@ -6,15 +6,19 @@ import Blogs from './Components/Blogs'
 import UserBlog from './Components/UserBlog';
 import BlogDetails from './Components/BlogDetails'
 import AddBlog from './Components/AddBlog'
+import Home from './Components/Home';
 
 
 
 function App() {
   return (
     < >
-      <Header/>
+      {/* <Header isloggedIn={false}/> */}
       <Routes>
-        <Route path='/auth' element={<Auth/>} />
+      <Route path='/'element={<Home/>} />
+
+        <Route path='/login'element={<Auth/>} />
+        <Route path='/register'element={<Auth register/>} />
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/blogs/add' element={<AddBlog/>}/>
         <Route path='/myBlogs' element={<UserBlog/>}/>
